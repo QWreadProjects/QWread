@@ -10,7 +10,7 @@ from qw_app.models import *
 
 def goHome(request):
     div1s = Fition.objects.filter().order_by("-click")[:4]
-    div2s = Fition.objects.filter().order_by("click")[:9]
+    div2s = Fition.objects.filter().order_by("click")[:11]
     div3s = Fition.objects.filter(fictionType_id=1).order_by("-click")[:13]
     div31s = div3s.first()
     div32s = div3s[1:]
@@ -140,7 +140,7 @@ def quanben(request):
                    'name': '全本'})
 
 
-def shuji(request):
+def shuji(request, book_id):
     name = request.GET.get("name")
     book_id = Fition.objects.filter(name=name).get(id)
     chapter = Chapter.objects.filter(fiction_id=book_id)

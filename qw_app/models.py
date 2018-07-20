@@ -41,9 +41,15 @@ class Fition(models.Model):
         self.click += 1
         self.save(update_fields=['click'])
 
+    def __str__(self):
+        return self.name
+
 
 class Chapter(models.Model):
     name = models.CharField(max_length=50, verbose_name='章节名')
     content = models.TextField(verbose_name="小说内容")
     updata_time = models.DateTimeField(auto_now=True, verbose_name="章节更新时间")
     fiction = models.ForeignKey(Fition, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name

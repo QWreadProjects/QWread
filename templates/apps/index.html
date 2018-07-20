@@ -45,7 +45,7 @@
                 <ul>
                     {% for div2 in div2s %}
                         <li>
-                            <span class="">[{{ div2.fictionType.name }}]</span><br/>
+                            <span class="s1">[{{ div2.fictionType.name }}]</span>
                             <span class="s2">
                                 <a href="#">{{ div2.name }}</a>
                             </span>
@@ -200,7 +200,7 @@
                             </span>
                             <span class="s3"><a href="#" target="_blank">{{ div9.name }}</a></span>
                             <span class="s4">{{ div9.fiction.author }}</span>
-                            <span class="s5">{{ div9.updata_time }}</span>
+                            <span class="s5">{{ div9.updata_time.date.month }}-{{ div9.updata_time.date.day }}</span>
                         </li>
                     {% endfor %}
                 </ul>

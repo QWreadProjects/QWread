@@ -11,7 +11,7 @@
     <div id="main">
         <div id="content">
             <div id="hotcontent">
-                <div class="ll" style="overflow: hidden">
+                <div class="ll">
                     {% for list in model1 %}
                         <div class="item">
                             <div class="image"><a href="#"><img
@@ -35,10 +35,10 @@
                 <ul>
                     {% for list in model2 %}
                         <li>
-                            <span class="s2">《<a href="{% url 'books:detail'  %}"
+                            <span class="s2">《<a href="#"
                                                  target="_blank">{{ list.fiction.name }}</a>》</span>
                             <span class="s3"><a href="#"
-                                                target="_blank">{{ list.name }}</a>{{ list.updata_time.date }}</span>
+                                                target="_blank">{{ list.name }}</a>({{ list.updata_time.date.month }}-{{ list.updata_time.date.day }})</span>
                             <span class="s5">{{ list.fiction.author }}</span>
                         </li>
                     {% endfor %}

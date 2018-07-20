@@ -53,18 +53,19 @@
         <div class="header_logo">
             <a href="{% url 'books:index' %}">趣味阅读</a>
         </div>
-    </div>
-
-    <div class="header">
-        <div class="header_logo">
-            <a href="{% url 'books:index' %}">趣味阅读</a>
-        </div>
-        <script>bqg_panel();</script>
         <div class="header_search">
             <form name="form" action="#" id="sform" target="_blank">
-                <input type="text" value=" " name="searchkey" class="search" id="wd">
-                <button id="sss" type="submit">搜 索</button>
+                <input type="text"
+                       value=" "
+                       name="searchkey"
+                       class="search"
+                       id="wd"
+                       baidusug="2">
+                <button id="sss" type="submit"> 搜 索</button>
             </form>
+        </div>
+        <div class="userpanel">&nbsp;<font color="red">提示：</font>错章奖积分：<a href="#">错误举报</a><br><a
+                target="_blank" href="#">积分规则</a>&nbsp;&nbsp;<a target="_blank" href="#">解决跳到别的站</a>
         </div>
     </div>
 
@@ -85,10 +86,6 @@
     {% block content %}
 
     {% endblock %}
-
-    <div id="firendlink">
-        友情链接：
-    </div>
 
     <div class="footer">
         <div class="footer_cont">
