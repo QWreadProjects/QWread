@@ -1,0 +1,63 @@
+{% extends 'apps/base.html' %}
+{% block styles %}
+    <style>
+        .item {
+            overflow: hidden;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div id="main">
+        <div id="content">
+            <div id="hotcontent">
+                <div class="ll">
+                    {% for list in model1 %}
+                        <div class="item">
+                            <div class="image"><a href="#"><img
+                                    src="{{ list.cover }}" alt="{{ list.name }}"
+                                    width="120"
+                                    height="150"></a>
+                            </div>
+                            <dl>
+                                <dt><span>{{ list.author }}</span><a href="#">{{ list.name }}</a></dt>
+                                <dd>{{ list.intro }}</dd>
+                            </dl>
+                        </div>
+                    {% endfor %}
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div id="newscontent">
+            <div class="l">
+                <h2>好看的{{ name }}小说最近更新列表</h2>
+                <ul>
+                    {% for list in model2 %}
+                        <li>
+                            <span class="s2">《<a href="#"
+                                                 target="_blank">{{ list.fiction.name }}</a>》</span>
+                            <span class="s3"><a href="#"
+                                                target="_blank">{{ list.name }}</a>({{ list.updata_time.date.month }}-{{ list.updata_time.date.day }})</span>
+                            <span class="s5">{{ list.fiction.author }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="r">
+                <h2>好看的{{ name }}小说</h2>
+                <ul>
+                    {% for list in model2 %}
+                        <li>
+                            <span class="s2">
+                                <a href="#">{{ list.fiction.name }}</a>
+                            </span>
+                            <span class="s5">{{ list.fiction.author }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,226 @@
+{% extends 'apps/base.html' %}
+{% block styles %}
+    <style>
+        .novelslist {
+            zoom: 1;
+        }
+
+        .novelslist:after {
+            display: block;
+            content: '.';
+            clear: both;
+            line-height: 0;
+            visibility: hidden;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div id="main">
+        <div id="hotcontent">
+            <div class="l">
+                {% for div1 in div1s %}
+                    <div class="item">
+                        <div class="image">
+                            <a href="#">
+                                <img src="{{ div1.cover }}" alt="{{ div1.name }}"
+                                     width="120" height="150">
+                            </a>
+                        </div>
+                        <dl>
+                            <dt>
+                                <span>{{ div1.author }}</span>
+                                <a href="#">{{ div1.name }}</a>
+                            </dt>
+                            <dd>
+                                {{ div1.intro }}
+                            </dd>
+                        </dl>
+                        <div class="clear" style="clear: both"></div>
+                    </div>
+                {% endfor %}
+                <div style="clear: both"></div>
+            </div>
+            <div class="r">
+                <h2>上期强推</h2>
+                <ul>
+                    {% for div2 in div2s %}
+                        <li>
+                            <span class="s1">[{{ div2.fictionType.name }}]</span>
+                            <span class="s2">
+                                <a href="#">{{ div2.name }}</a>
+                            </span>
+                            <span class="s5">{{ div2.author }}</span>
+                        </li>
+                        <div style="clear: both"></div>
+                    {% endfor %}
+                </ul>
+                <div style="clear: both"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="novelslist">
+            <div class="content">
+                <h2>玄幻小说</h2>
+                <div class="top">
+                    <div class="image">
+                        <img src="{{ div31s.cover }}" alt="{{ div31s.name }}"
+                             width="67" height="82">
+                    </div>
+                    <dl>
+                        <dt><a href="#">{{ div31s.name }}</a></dt>
+                        <dd>
+                            {{ div31s.intro }}
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <ul>
+                    {% for div32 in div32s %}
+                        <li><a href="#">{{ div32.name }}</a>/{{ div32.author }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="content">
+                <h2>修真小说</h2>
+                <div class="top">
+                    <div class="image">
+                        <img src="{{ div41s.cover }}" alt="{{ div41s.name }}"
+                             width="67" height="82">
+                    </div>
+                    <dl>
+                        <dt><a href="#">{{ div41s.name }}</a></dt>
+                        <dd>
+                            {{ div41s.intro }}
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <ul>
+                    {% for div42 in div42s %}
+                        <li><a href="#">{{ div42.name }}</a>/{{ div42.author }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="content border">
+                <h2>都市小说</h2>
+                <div class="top">
+                    <div class="image">
+                        <img src="{{ div51s.cover }}" alt="{{ div51s.name }}"
+                             width="67" height="82">
+                    </div>
+                    <dl>
+                        <dt><a href="#">{{ div51s.name }}</a></dt>
+                        <dd>
+                            {{ div51s.intro }}
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <ul>
+                    {% for div52 in div52s %}
+                        <li><a href="#">{{ div52.name }}</a>/{{ div52.author }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="novelslist">
+            <div class="content">
+                <h2>历史小说</h2>
+                <div class="top">
+                    <div class="image">
+                        <img src="{{ div61s.cover }}" alt="{{ div61s.name }}"
+                             width="67" height="82">
+                    </div>
+                    <dl>
+                        <dt><a href="#">{{ div61s.name }}</a></dt>
+                        <dd>
+                            {{ div61s.intro }}
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <ul>
+                    {% for div62 in div62s %}
+                        <li><a href="#">{{ div62.name }}</a>/{{ div62.author }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="content">
+                <h2>网游小说</h2>
+                <div class="top">
+                    <div class="image">
+                        <img src="{{ div71s.cover }}" alt="{{ div71s.name }}"
+                             width="67" height="82">
+                    </div>
+                    <dl>
+                        <dt><a href="#">{{ div71s.name }}</a></dt>
+                        <dd>
+                            {{ div71s.intro }}
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <ul>
+                    {% for div72 in div72s %}
+                        <li><a href="#">{{ div72.name }}</a>/{{ div72.author }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="content border">
+                <h2>科幻小说</h2>
+                <div class="top">
+                    <div class="image">
+                        <img src="{{ div81s.cover }}" alt="{{ div81s.name }}"
+                             width="67" height="82">
+                    </div>
+                    <dl>
+                        <dt><a href="#">{{ div81s.name }}</a></dt>
+                        <dd>
+                            {{ div81s.intro }}
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <ul>
+                    {% for div82 in div82s %}
+                        <li><a href="#">{{ div82.name }}</a>/{{ div82.author }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div id="newscontent">
+            <div class="l">
+                <h2>最近更新小说列表</h2>
+                <ul>
+                    {% for div9 in div9s %}
+                        <li>
+                            <span class="">[{{ div9.fiction.fictionType.name }}]</span>
+                            <span class="s2">
+                                <a href="#" target="_blank">{{ div9.fiction.name }}</a>
+                            </span>
+                            <span class="s3"><a href="#" target="_blank">{{ div9.name }}</a></span>
+                            <span class="s4">{{ div9.fiction.author }}</span>
+                            <span class="s5">{{ div9.updata_time.date.month }}-{{ div9.updata_time.date.day }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="r">
+                <h2>最新入库小说</h2>
+                <ul>
+                    {% for div10 in div10s %}
+                        <li>
+                            {#小说类型#}
+                            <span class="">[{{ div10.fictionType.name }}]</span>
+                            <span class="s2">
+                                <a href="#">{{ div10.name }}</a>
+                            </span>
+                            <span class="s5">{{ div10.author }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+{% endblock %}

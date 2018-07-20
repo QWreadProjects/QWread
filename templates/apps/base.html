@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>趣味阅读</title>
+    <meta name="keywords" content="趣味阅读,网络小说,小说阅读网,小说"/>
+    <meta name="description" content="趣味阅读是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'apps/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'apps/css/bootstrap-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'bq/css/biquge.css' %}">
+    <script type="text/javascript" href="{% static 'bq/' %}"></script>
+    <script type="text/javascript" href="{% static 'apps/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" href="{% static 'apps/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" href="{% static 'apps/js/npm.js' %}"></script>
+    {% block styles %}
+
+    {% endblock %}
+</head>
+<body>
+
+<div id="wrapper">
+    <div class="ywtop">
+        <div class="ywtop_con">
+            <div class="ywtop_sethome"><a href="#">将趣味阅读快捷键下载到桌面</a></div>
+            <div class="ywtop_addfavorite"><a href="#">收藏趣味阅读</a>
+            </div>
+            <a href="#">小说排行榜</a>
+            <div class="nri">
+                {% if user.is_authenticated %}
+                    <p>你已登陆,欢迎你:<a href="#">{{ user.username }}</a></p>
+                    <button class="btn btn-default"><a href="{% url 'logout' %}?next={{ request.path }}">注销登陆</a>
+                    </button>
+                    <button class="btn btn-default"><a
+                            href="{% url 'password_change' %}?next={{ request.path }}">修改密码</a>
+                    </button>
+                {% else %}
+                    <p>你还没有登陆,请
+                        <button class="btn btn-default btn-xs" style="margin-bottom: 6px"><a
+                                href="{% url 'login' %}?next={{ request.path }}">登陆</a>
+                        </button>
+                        或者
+                        <button class="btn btn-default btn-xs" style="margin-bottom: 6px"><a
+                                href="{% url 'users:register' %}">注册</a></button>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="header_logo">
+            <a href="{% url 'books:index' %}">趣味阅读</a>
+        </div>
+        <div class="header_search">
+            <form name="form" action="#" id="sform" target="_blank">
+                <input type="text"
+                       value=" "
+                       name="searchkey"
+                       class="search"
+                       id="wd"
+                       baidusug="2">
+                <button id="sss" type="submit"> 搜 索</button>
+            </form>
+        </div>
+        <div class="userpanel">&nbsp;<font color="red">提示：</font>错章奖积分：<a href="#">错误举报</a><br><a
+                target="_blank" href="#">积分规则</a>&nbsp;&nbsp;<a target="_blank" href="#">解决跳到别的站</a>
+        </div>
+    </div>
+
+    <div class="nav">
+        <ul>
+            <li><a href="{% url 'books:index' %}">网站首页</a></li>
+            <li><a href="{% url 'books:xuanhuan' %}">玄幻小说</a></li>
+            <li><a href="{% url 'books:xiuzhen' %}">修真小说</a></li>
+            <li><a href="{% url 'books:dushi' %}">都市小说</a></li>
+            <li><a href="{% url 'books:lishi' %}">历史小说</a></li>
+            <li><a href="{% url 'books:wangyou' %}">网游小说</a></li>
+            <li><a href="{% url 'books:kehuan' %}">科幻小说</a></li>
+            <li><a href="{% url 'books:kongbu' %}">恐怖小说</a></li>
+            <li><a href="{% url 'books:quanben' %}">全本小说</a></li>
+        </ul>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <div class="footer">
+        <div class="footer_cont">
+            <script>
+                footer();
+                right();
+            </script>
+            <p>本站所有小说为转载作品，所有章节均由网友上传，转载至本站只是为了宣传本书让更多读者欣赏。</p>
+            <p>Copyright © 2018 趣味阅读 All Rights Reserved.</p>
+            <div style="display:none">
+            </div>
+        </div>
+    </div>
+
+    <div id="goog-gt-tt" class="skiptranslate" dir="ltr">
+        <div class="middle" style="padding: 8px;">
+            <div class="original-text"></div>
+        </div>
+        <div class="status-message" style="display: none;"></div>
+    </div>
+
+    <div class="goog-te-spinner-pos">
+        <div class="goog-te-spinner-animation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px"
+                 viewBox="0 0 66 66">
+                <circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33"
+                        r="30"></circle>
+            </svg>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
