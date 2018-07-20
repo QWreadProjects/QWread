@@ -1,0 +1,117 @@
+{% extends 'apps/base.html' %}
+{% block styles %}
+    <style id="03ef8765-9194-491b-98ca-64b629a58529">.pb-toast-main {
+        z-index: 2147483639 !important;
+        position: fixed !important;
+        top: -50px !important;
+        left: 0px !important;
+        width: 100% !important;
+        height: 44px !important;
+        border: none !important;
+        box-shadow: 0 1px 0 0 #b6b4b6 !important;
+        transition: top 0.3s;
+    }
+
+    .pb-toast-main-move {
+        top: 0px !important;
+    }
+
+    .pb-toast-main-show {
+        transition: none;
+        top: 0px !important;
+    }
+
+    #pb_jq_tipsWrapper {
+        position: fixed !important;
+        width: 230px !important;
+        background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2);
+        font-family: "Lucida Grande", tahoma, verdana, arial, sans-serif !important;
+        border-radius: 5px !important;
+        color: #ffffff !important;
+        z-index: 2147483641 !important;
+        padding: 15px !important;
+        font-size: 14px !important;
+    }
+
+    #pb_jq_tipsWrapper:before {
+        position: absolute !important;
+        top: -10px !important;
+        right: 60px !important;
+        display: inline-block !important;
+        border-right: 10px solid transparent !important;
+        border-bottom: 10px solid #000 !important;
+        border-left: 10px solid transparent !important;
+        border-bottom-color: rgba(0, 0, 0, 0.2) !important;
+        content: '' !important;
+    }
+
+    #pb_jq_tipsWrapper:after {
+        position: absolute !important;
+        top: -9px !important;
+        right: 60px !important;
+        display: inline-block !important;
+        border-right: 9px solid transparent !important;
+        border-bottom: 9px solid #000 !important;
+        border-left: 9px solid transparent !important;
+        content: '' !important;
+    }
+
+    #pb-link-copied-message {
+        display: none;
+        position: fixed;
+        width: 90px;
+        height: 29px;
+        opacity: 0;
+        border-radius: 100px;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 2147483641;
+        font-family: "Lucida Grande", tahoma, verdana, arial, sans-serif !important;
+        font-size: 13px;
+        line-height: 29px;
+        text-align: center;
+        color: #ffffff;
+    }</style>
+{% endblock %}
+
+{% block content %}
+    <div class="box_con">
+        <div class="con_top">
+            <div id="bdshare" class="bdshare_b">
+                <script type="text/javascript">mulubd();</script>
+                (提示:已启用缓存技术，最新章节未能及时显示，请强制刷新本页面。)
+            </div>
+            <a href="{% url 'books:index' %}">趣味阅读</a> &gt; {{ type }} &gt; {{ shumong }}最新章节目录
+        </div>
+    </div>
+
+    <div id="maininfo">
+        <div id="info">
+            <h1>{{ shuming }}</h1>
+            <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：{{ zuozhe }}</p>
+            <p>最后更新：{{ time }}</p>
+            <p>最新章节：<a href="#">{{ zhangjieming }}</a></p>
+        </div>
+        <div id="intro">
+            <p>{{ jianjie }}</p>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div id="fmimg">
+            <img alt="{{ zuozheming }}" src="{{ fengmianlianjie }}"
+                 onerror="src='{{ meiyoufengmiantushidetupianlianjie }}'">
+        </div>
+    </div>
+
+    <div class="box_con">
+        <div id="list">
+            <dl>
+                {% for list in lists %}
+                    <dd><a href="{{ zhangjielianjie }}">{{ zhangjieming }}</a></dd>
+                {% endfor %}
+                <dt>各位书友要是觉得《{{ shuming }}》还不错的话请不要忘记向您QQ群和微博里的朋友推荐哦！</dt>
+            </dl>
+        </div>
+    </div>
+{% endblock %}

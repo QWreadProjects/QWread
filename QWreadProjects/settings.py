@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -25,8 +24,7 @@ SECRET_KEY = '8rd(*-5k@a5b^tc0nxcxxbq(tw7o9h#$9iw76pp=+2@do%5ee1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -37,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'qw_app.apps.QwAppConfig',
+    'qw_app',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -70,23 +69,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'QWreadProjects.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.mysql',
-'NAME': 'QWread',
-'USER': 'root',
-'PASSWORD': 'root',
-'HOST': '10.35.163.65',
-'PORT': '3306',
-'CHARSET': 'UTF8',
-'OPTIONS': {
-"isolation_level": 'read committed'
-}
-}
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'BookStore',
+        # 'USER': 'root',
+        # 'PASSWORD': 'root',
+        'HOST': '10.35.163.62',
+        'PORT': '3306',
+        'CHARSET': 'UTF8',
+        'OPTIONS': {
+            "isolation_level": 'read committed'
+        }
+    }
 }
 
 # Password validation
@@ -107,24 +105,37 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
-
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
+MEDIA_URL = '/static/upload/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/upload')
-TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.126.com"
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'zhangcong_me@126.com'
+EMAIL_HOST_PASSWORD = 'zc1234'
+EMAIL_HOST_TLS = False
+EMAIL_FROM = 'zhangcong_me@126.com'
+
+LOGOUT_REDIRECT_URL = 'qwread/index'
+LOGIN_REDIRECT_URL = 'qwread/index'
