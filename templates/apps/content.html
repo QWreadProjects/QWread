@@ -1,177 +1,18 @@
 {% extends 'apps/base.html' %}
-{% block styles %}
-    <style media="screen" class="noRemove">.speech {
-        position: fixed;
-        z-index: 100;
-        background-color: white;
-        top: 10px;
-        right: 35px;
-    }
-    </style>
-    <style media="screen" class="noRemove">.speech .close-btn {
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-
-    .speech .loader {
-        text-align: center;
-    }
-
-    .speech .auto-stop-input {
-        width: 30px;
-    }
-
-    .speech .tips {
-        font-size: 0.8em;
-    }
-    </style>
-    <style media="screen" class="noRemove">/*.v-spinner
-{
-    margin: 100px auto;
-    text-align: center;
-}
-*/
-    @-webkit-keyframes v-pulseStretchDelay {
-        0%,
-        80% {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            -webkit-opacity: 1;
-            opacity: 1;
-        }
-        45% {
-            -webkit-transform: scale(0.1);
-            transform: scale(0.1);
-            -webkit-opacity: 0.7;
-            opacity: 0.7;
-        }
-    }
-
-    @keyframes v-pulseStretchDelay {
-        0%,
-        80% {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            -webkit-opacity: 1;
-            opacity: 1;
-        }
-        45% {
-            -webkit-transform: scale(0.1);
-            transform: scale(0.1);
-            -webkit-opacity: 0.7;
-            opacity: 0.7;
-        }
-    }
-    </style>
-    <style id="58c1d012-4f67-4def-9827-f1257fd3d92a">
-        .readerbtn {
-            position: fixed;
-            right: 10px;
-            bottom: 10px;
-            z-index: 2247483648;
-            padding: 20px 5px;
-            width: 50px;
-            height: 20px;
-            line-height: 20px;
-            text-align: center;
-            border: 1px solid;
-            border-color: #888;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, .5);
-            color: #FFF;
-            font: 12px/1.5 "微软雅黑", "宋体", Arial;
-            cursor: pointer;
-        }
-    </style>
-    <style id="f636c069-cfad-474c-ae60-3dd698bd3e13">.pb-toast-main {
-        z-index: 2147483639 !important;
-        position: fixed !important;
-        top: -50px !important;
-        left: 0px !important;
-        width: 100% !important;
-        height: 44px !important;
-        border: none !important;
-        box-shadow: 0 1px 0 0 #b6b4b6 !important;
-        transition: top 0.3s;
-    }
-
-    .pb-toast-main-move {
-        top: 0px !important;
-    }
-
-    .pb-toast-main-show {
-        transition: none;
-        top: 0px !important;
-    }
-
-    #pb_jq_tipsWrapper {
-        position: fixed !important;
-        width: 230px !important;
-        background-color: rgba(0, 0, 0, 0.8);
-        box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2);
-        font-family: "Lucida Grande", tahoma, verdana, arial, sans-serif !important;
-        border-radius: 5px !important;
-        color: #ffffff !important;
-        z-index: 2147483641 !important;
-        padding: 15px !important;
-        font-size: 14px !important;
-    }
-
-    #pb_jq_tipsWrapper:before {
-        position: absolute !important;
-        top: -10px !important;
-        right: 60px !important;
-        display: inline-block !important;
-        border-right: 10px solid transparent !important;
-        border-bottom: 10px solid #000 !important;
-        border-left: 10px solid transparent !important;
-        border-bottom-color: rgba(0, 0, 0, 0.2) !important;
-        content: '' !important;
-    }
-
-    #pb_jq_tipsWrapper:after {
-        position: absolute !important;
-        top: -9px !important;
-        right: 60px !important;
-        display: inline-block !important;
-        border-right: 9px solid transparent !important;
-        border-bottom: 9px solid #000 !important;
-        border-left: 9px solid transparent !important;
-        content: '' !important;
-    }
-
-    #pb-link-copied-message {
-        display: none;
-        position: fixed;
-        width: 90px;
-        height: 29px;
-        opacity: 0;
-        border-radius: 100px;
-        background-color: rgba(0, 0, 0, 0.7);
-        z-index: 2147483641;
-        font-family: "Lucida Grande", tahoma, verdana, arial, sans-serif !important;
-        font-size: 13px;
-        line-height: 29px;
-        text-align: center;
-        color: #ffffff;
-    }
-    </style>
-{% endblock %}
 
 {% block content %}
     <div class="content_read">
         <div class="box_con">
             <div class="con_top">
                 <script>textselect();</script>
-                <a href="/">趣味阅读</a> &gt; {{ type }} &gt; <a href="{{ xioashuolianjie }}">{{ xiaoshuoming }}</a>
-                &gt; {{ zhangjieming }}
+                <a href="/">趣味阅读</a> &gt; {{ book_content.fiction.fictionType.name }} &gt; <a href="#">{{ book_content.fiction.name }}</a>
+                &gt; {{ book_content.name }}
             </div>
             <div class="bookname">
-                <h1>{{ zhangjieming }}</h1>
+                <h1>{{ book_content.name }}</h1>
                 <div class="bottem1">
                     <a href="#">投推荐票</a>
-                    <a href="#">上一章</a> ← <a href="#">{{ shuming }}</a> → <a
+                    <a href="#">上一章</a> ← <a href="#">{{ book_content.fiction.name }}</a> → <a
                         href="#">下一章</a> <a href="#">加入书签</a>
                 </div>
             </div>
@@ -191,13 +32,11 @@
                 </tbody>
             </table>
             <div id="content">
-                {{ content }}
+                {{ contents }}
             </div>
-            <script>read3();</script>
-            <script>bdshare();</script>
             <div class="bottem2">
                 <a href="#">投推荐票</a>
-                <a href="#">上一章</a> ← <a href="#">{{ shuming }}</a> → <a
+                <a href="#">上一章</a> ← <a href="#">{{ book_content.fiction.name }}</a> → <a
                     href="#">下一章</a> <a href="#">加入书签</a>
             </div>
             <script>read4();</script>

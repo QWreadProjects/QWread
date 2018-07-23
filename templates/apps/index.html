@@ -21,7 +21,7 @@
                 {% for div1 in div1s %}
                     <div class="item">
                         <div class="image">
-                            <a href="#">
+                            <a href="/qwread/shuji/?id={{ div1.id }}">
                                 <img src="{{ div1.cover }}" alt="{{ div1.name }}"
                                      width="120" height="150">
                             </a>
@@ -47,7 +47,7 @@
                         <li>
                             <span class="s1">[{{ div2.fictionType.name }}]</span>
                             <span class="s2">
-                                <a href="#">{{ div2.name }}</a>
+                                <a href="/qwread/shuji/?id={{ div2.id }}">{{ div2.name }}</a>
                             </span>
                             <span class="s5">{{ div2.author }}</span>
                         </li>
@@ -67,7 +67,7 @@
                              width="67" height="82">
                     </div>
                     <dl>
-                        <dt><a href="#">{{ div31s.name }}</a></dt>
+                        <dt><a href="/qwread/shuji/?id={{ div31s.id }}">{{ div31s.name }}</a></dt>
                         <dd>
                             {{ div31s.intro }}
                         </dd>
@@ -76,7 +76,7 @@
                 </div>
                 <ul>
                     {% for div32 in div32s %}
-                        <li><a href="#">{{ div32.name }}</a>/{{ div32.author }}</li>
+                        <li><a href="/qwread/shuji/?id={{ div32.id }}">{{ div32.name }}</a>/{{ div32.author }}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -88,7 +88,7 @@
                              width="67" height="82">
                     </div>
                     <dl>
-                        <dt><a href="#">{{ div41s.name }}</a></dt>
+                        <dt><a href="/qwread/shuji/?id={{ div41s.id }}">{{ div41s.name }}</a></dt>
                         <dd>
                             {{ div41s.intro }}
                         </dd>
@@ -97,7 +97,7 @@
                 </div>
                 <ul>
                     {% for div42 in div42s %}
-                        <li><a href="#">{{ div42.name }}</a>/{{ div42.author }}</li>
+                        <li><a href="/qwread/shuji/?id={{ div42.id }}">{{ div42.name }}</a>/{{ div42.author }}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -109,7 +109,7 @@
                              width="67" height="82">
                     </div>
                     <dl>
-                        <dt><a href="#">{{ div51s.name }}</a></dt>
+                        <dt><a href="/qwread/shuji/?id={{ div51s.id }}">{{ div51s.name }}</a></dt>
                         <dd>
                             {{ div51s.intro }}
                         </dd>
@@ -118,7 +118,7 @@
                 </div>
                 <ul>
                     {% for div52 in div52s %}
-                        <li><a href="#">{{ div52.name }}</a>/{{ div52.author }}</li>
+                        <li><a href="/qwread/shuji/?id={{ div52.id }}">{{ div52.name }}</a>/{{ div52.author }}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -132,7 +132,7 @@
                              width="67" height="82">
                     </div>
                     <dl>
-                        <dt><a href="#">{{ div61s.name }}</a></dt>
+                        <dt><a href="/qwread/shuji/?id={{ div61s.id }}">{{ div61s.name }}</a></dt>
                         <dd>
                             {{ div61s.intro }}
                         </dd>
@@ -141,7 +141,7 @@
                 </div>
                 <ul>
                     {% for div62 in div62s %}
-                        <li><a href="#">{{ div62.name }}</a>/{{ div62.author }}</li>
+                        <li><a href="/qwread/shuji/?id={{ div62.id }}">{{ div62.name }}</a>/{{ div62.author }}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -153,7 +153,7 @@
                              width="67" height="82">
                     </div>
                     <dl>
-                        <dt><a href="#">{{ div71s.name }}</a></dt>
+                        <dt><a href="/qwread/shuji/?id={{ div71s.id }}">{{ div71s.name }}</a></dt>
                         <dd>
                             {{ div71s.intro }}
                         </dd>
@@ -162,7 +162,7 @@
                 </div>
                 <ul>
                     {% for div72 in div72s %}
-                        <li><a href="#">{{ div72.name }}</a>/{{ div72.author }}</li>
+                        <li><a href="/qwread/shuji/?id={{ div72.id }}">{{ div72.name }}</a>/{{ div72.author }}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -174,7 +174,7 @@
                              width="67" height="82">
                     </div>
                     <dl>
-                        <dt><a href="#">{{ div81s.name }}</a></dt>
+                        <dt><a href="/qwread/shuji/?id={{ div81s.id }}">{{ div81s.name }}</a></dt>
                         <dd>
                             {{ div81s.intro }}
                         </dd>
@@ -183,7 +183,7 @@
                 </div>
                 <ul>
                     {% for div82 in div82s %}
-                        <li><a href="#">{{ div82.name }}</a>/{{ div82.author }}</li>
+                        <li><a href="/qwread/shuji/?id={{ div82.id }}">{{ div82.name }}</a>/{{ div82.author }}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -194,13 +194,14 @@
                 <ul>
                     {% for div9 in div9s %}
                         <li>
-                            <span class="">[{{ div9.fiction.fictionType.name }}]</span>
+                            <span class="">[{{ div9.fictionType.name }}]</span>
                             <span class="s2">
-                                <a href="#" target="_blank">{{ div9.fiction.name }}</a>
+                                <a href="/qwread/shuji/?id={{ div9.id }}" target="_blank">{{ div9.name }}</a>
                             </span>
-                            <span class="s3"><a href="#" target="_blank">{{ div9.name }}</a></span>
-                            <span class="s4">{{ div9.fiction.author }}</span>
-                            <span class="s5">{{ div9.updata_time.date.month }}-{{ div9.updata_time.date.day }}</span>
+                            <span class="s3"><a href="/qwread/content/?id={{ div9.chapter_set.filter.0.id }}"
+                                                target="_blank">{{ div9.chapter_set.filter.0.name }}</a></span>
+                            <span class="s4">{{ div9.author }}</span>
+                            <span class="s5">{{ div9.chapter_set.all.first.updata_time|date:'m-d' }}</span>
                         </li>
                     {% endfor %}
                 </ul>
@@ -213,7 +214,7 @@
                             {#小说类型#}
                             <span class="">[{{ div10.fictionType.name }}]</span>
                             <span class="s2">
-                                <a href="#">{{ div10.name }}</a>
+                                <a href="/qwread/shuji/?id={{ div10.id }}">{{ div10.name }}</a>
                             </span>
                             <span class="s5">{{ div10.author }}</span>
                         </li>

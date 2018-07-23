@@ -297,8 +297,8 @@ model</ColNames>
     </column>
     <column id="76" parent="16" name="updata_time">
       <Position>4</Position>
-      <DataType>datetime(6)|0</DataType>
-      <NotNull>1</NotNull>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="77" parent="16" name="fiction_id">
       <Position>5</Position>
@@ -358,13 +358,13 @@ model</ColNames>
     </column>
     <column id="88" parent="18" name="put_time">
       <Position>5</Position>
-      <DataType>datetime(6)|0</DataType>
-      <NotNull>1</NotNull>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="89" parent="18" name="click">
       <Position>6</Position>
-      <DataType>int(10) unsigned|0</DataType>
-      <NotNull>1</NotNull>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
     <column id="90" parent="18" name="author">
       <Position>7</Position>

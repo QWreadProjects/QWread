@@ -2,30 +2,22 @@
 {% load static %}
 {% block content %}
     <div class="box_con">
-        <div class="con_top">
-            <div id="bdshare" class="bdshare_b">
-                <script type="text/javascript">mulubd();</script>
-                (提示:已启用缓存技术，最新章节未能及时显示，请强制刷新本页面。)
+        <div id="maininfo">
+            <div id="info">
+                <h1>{{ book.0.name }}</h1>
+                <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：{{ book.0.author }}</p>
+                <p>最后更新：{{ chapters.first.updata_time }}</p>
+                <p>最新章节：<a href="">{{ chapter }}</a></p>
             </div>
-            <a href="{% url 'books:index' %}">趣味阅读</a> &gt; {{ book.fictionType.name }} &gt; {{ book.name }}最新章节目录
+            <div id="intro">
+                <p>{{ book.0.intro }}</p>
+            </div>
         </div>
-    </div>
 
-    <div id="maininfo">
-        <div id="info">
-            <h1>{{ book.name }}</h1>
-            <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：{{ book.author }}</p>
-            <p>最后更新：{{ chapter.update_time }}</p>
-            <p>最新章节：<a href="#">{{ chapter }}</a></p>
-        </div>
-        <div id="intro">
-            <p>{{ book.intro }}</p>
-        </div>
-    </div>
-
-    <div id="sidebar">
-        <div id="fmimg">
-            <img alt="{{ book.author }}" src="{{ book.cover }}">
+        <div id="sidebar">
+            <div id="fmimg">
+                <img alt="{{ book.0.author }}" src="{{ book.0.cover }}">
+            </div>
         </div>
     </div>
 
@@ -33,9 +25,9 @@
         <div id="list">
             <dl>
                 {% for list in chapters %}
-                    <dd><a href="#">{{ list }}</a></dd>
+                    <dd><a href="/qwread/content/?id={{ list.id }}">{{ list }}</a></dd>
                 {% endfor %}
-                <dt>各位书友要是觉得《{{ book.name }}》还不错的话请不要忘记向您QQ群和微博里的朋友推荐哦！</dt>
+                <dt>各位书友要是觉得《{{ book.0.name }}》还不错的话请不要忘记向您QQ群和微博里的朋友推荐哦！</dt>
             </dl>
         </div>
     </div>

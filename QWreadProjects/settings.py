@@ -137,8 +137,8 @@ EMAIL_HOST_PASSWORD = 'zc1234'
 EMAIL_HOST_TLS = False
 EMAIL_FROM = 'zhangcong_me@126.com'
 
-LOGOUT_REDIRECT_URL = 'qwread/index'
-LOGIN_REDIRECT_URL = 'qwread/index'
+# LOGOUT_REDIRECT_URL = 'qwread/index'
+# LOGIN_REDIRECT_URL = 'qwread/index'
 
 LOGGING = {
     'version': 1.0,

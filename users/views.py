@@ -26,11 +26,10 @@ def register(request):
                 recipient_list=[email, ],
                 fail_silently=False,
             )
-        logging.getLogger('mdjango').warning('{}注册成功！'.format(request.POST.get('username')))
         if redirect_to:
             return redirect(redirect_to)
         else:
-            return redirect('/users/register/')
+            return redirect('qwread/index/')
 
     else:
         form = RegisterForm()

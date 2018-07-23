@@ -13,5 +13,6 @@ urlpatterns = [
     path('kongbu/', views.kongbu, name='kongbu'),
     path('quanben/', views.quanben, name='quanben'),
     path('shuji/', views.shuji, name="detail"),
-
+    path('content/', views.content, name='content'),
+    path('search/', views.search, name='search')
 ]
