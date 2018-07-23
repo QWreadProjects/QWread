@@ -1,3 +1,5 @@
+import logging
+
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -24,7 +26,7 @@ def register(request):
                 recipient_list=[email, ],
                 fail_silently=False,
             )
-
+        logging.getLogger('mdjango').warning('{}注册成功！'.format(request.POST.get('username')))
         if redirect_to:
             return redirect(redirect_to)
         else:

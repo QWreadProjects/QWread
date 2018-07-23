@@ -12,6 +12,6 @@ urlpatterns = [
     path('kehuan/', views.kehuan, name='kehuan'),
     path('kongbu/', views.kongbu, name='kongbu'),
     path('quanben/', views.quanben, name='quanben'),
-    path('shuji/<id>', views.shuji, name="detail"),
+    path('shuji/', views.shuji, name="detail"),
 
 ]

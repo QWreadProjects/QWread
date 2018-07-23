@@ -139,3 +139,38 @@ EMAIL_FROM = 'zhangcong_me@126.com'
 
 LOGOUT_REDIRECT_URL = 'qwread/index'
 LOGIN_REDIRECT_URL = 'qwread/index'
+
+LOGGING = {
+    'version': 1.0,
+
+    'disable_existing_loggers': True,
+
+    'formatters': {
+        'info': {
+            'format': '[%(levelname)s][%(asctime)s][%(filename)s][%(funcName)s][%(lineno)d] > %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        },
+    },
+
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'info'
+        },
+        'file_handler': {
+            'level': 'INFO',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': 'a.log',
+            'formatter': 'info'
+        },
+    },
+
+    'loggers': {
+        'mdjango': {
+            'handlers': ['console', 'file_handler'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    }
+}

@@ -140,10 +140,10 @@ def quanben(request):
                    'name': '全本'})
 
 
-def shuji(request, book_id):
-    name = request.GET.get("name")
-    book_id = Fition.objects.filter(name=name).get(id)
-    chapter = Chapter.objects.filter(fiction_id=book_id)
-    Fition.increase_click(name)
+def shuji(request):
+    book_id = request.GET.get("id")
+    book = Fition.objects.filter(id=book_id)
+    chapters = Chapter.objects.filter(fiction_id=book_id).order_by('name')
+    chapter = chapters.last()
     return render(request, "apps/detail.html",
-                  {'chapter': chapter, 'book_id': book_id})
+                  {'chapters': chapters, 'book': book, 'chapter': chapter})

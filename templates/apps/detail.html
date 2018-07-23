@@ -1,4 +1,5 @@
 {% extends 'apps/base.html' %}
+{% load static %}
 {% block content %}
     <div class="box_con">
         <div class="con_top">
@@ -6,36 +7,35 @@
                 <script type="text/javascript">mulubd();</script>
                 (提示:已启用缓存技术，最新章节未能及时显示，请强制刷新本页面。)
             </div>
-            <a href="{% url 'books:index' %}">趣味阅读</a> &gt; {{ lis }} &gt; {{ name }}最新章节目录
+            <a href="{% url 'books:index' %}">趣味阅读</a> &gt; {{ book.fictionType.name }} &gt; {{ book.name }}最新章节目录
         </div>
     </div>
 
     <div id="maininfo">
         <div id="info">
-            <h1>{{ name }}</h1>
-            <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：{{ chapter }}</p>
-            <p>最后更新：{{ time }}</p>
-            <p>最新章节：<a href="#">{{ zhangjieming }}</a></p>
+            <h1>{{ book.name }}</h1>
+            <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：{{ book.author }}</p>
+            <p>最后更新：{{ chapter.update_time }}</p>
+            <p>最新章节：<a href="#">{{ chapter }}</a></p>
         </div>
         <div id="intro">
-            <p>{{ jianjie }}</p>
+            <p>{{ book.intro }}</p>
         </div>
     </div>
 
     <div id="sidebar">
         <div id="fmimg">
-            <img alt="{{ zuozheming }}" src="{{ fengmianlianjie }}"
-                 onerror="src='{{ meiyoufengmiantushidetupianlianjie }}'">
+            <img alt="{{ book.author }}" src="{{ book.cover }}">
         </div>
     </div>
 
     <div class="box_con">
         <div id="list">
             <dl>
-                {% for list in lists %}
-                    <dd><a href="{{ zhangjielianjie }}">{{ zhangjieming }}</a></dd>
+                {% for list in chapters %}
+                    <dd><a href="#">{{ list }}</a></dd>
                 {% endfor %}
-                <dt>各位书友要是觉得《{{ shuming }}》还不错的话请不要忘记向您QQ群和微博里的朋友推荐哦！</dt>
+                <dt>各位书友要是觉得《{{ book.name }}》还不错的话请不要忘记向您QQ群和微博里的朋友推荐哦！</dt>
             </dl>
         </div>
     </div>
